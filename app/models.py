@@ -4,7 +4,7 @@ from django.db import models
 class Payload(models.Model):
     content_html = models.TextField()
     subject = models.CharField(max_length=200)
-    to_recipients = models.TextField()
+    to_recipients = models.JSONField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

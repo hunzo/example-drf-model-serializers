@@ -10,9 +10,12 @@ class AttacheFileSerializer(serializers.ModelSerializer):
 
 class PayloadSerializers(serializers.ModelSerializer):
 
+    to_recipients = serializers.ListSerializer(child = serializers.EmailField())
+
     attach_files = AttacheFileSerializer(many=True)
 
     class Meta:
+        ordering = ['-created_at']
         model = Payload
         fields = '__all__'
         depth = 1

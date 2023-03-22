@@ -3,7 +3,13 @@
 {
     "content_html": "<h1>test</h1>",
     "subject": "this is subject",
-    "to_recipients": "email@example.com",
+    "to_recipients": [
+        "email1@example.com",
+        "email1@example.com",
+        "email1@example.com",
+        "email1@example.com",
+        "email2@example.com"
+        ],
     "attach_files": [
         {
             "file_bytes": "SGVsbG8gV29ybGQh",
@@ -26,7 +32,7 @@
 {
     "content_html": "<h1>test</h1>",
     "subject": "Subject no Attachement",
-    "to_recipients": "email@example.com",
+    "to_recipients": ["email@example.com"],
     "attach_files": []
 }
 ```
