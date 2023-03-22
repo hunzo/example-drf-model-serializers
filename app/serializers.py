@@ -28,6 +28,7 @@ class PayloadSerializers(serializers.ModelSerializer):
         return payload_instance
 
     def update(self, instance, validate_data):
+        print("call update")
         attach_files_list = validate_data.pop("attach_files")
         instance.content_html = validate_data.get(
             "content_html", instance.content_html)
