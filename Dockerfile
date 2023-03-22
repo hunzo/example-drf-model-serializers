@@ -13,9 +13,10 @@ COPY requirements.txt ./
 RUN apt-get update -y 
 RUN apt-get clean -y
 
-RUN chown -R app:app $APP_HOME
 RUN pip install --no-cache --upgrade pip
 RUN pip install -r requirements.txt
 
+# RUN chown -R app:app $APP_HOME
+
 # change to the app user
-USER app
+# USER app
