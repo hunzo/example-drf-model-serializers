@@ -1,0 +1,29 @@
+version: '3.9'
+
+networks:
+  backend-net:
+
+services:
+
+  django-app:
+    build: .
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000 -w 2
+    volumes:
+      - .:/home/app
+    expose:
+      - 8000
+    restart: unless-stopped
+    
+    networks:
+      - backend-net
+    
+  
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./staticfiles:/home/app/staticfiles
+    ports:
+      - 80:80
+    networks:
+      - backend-net
